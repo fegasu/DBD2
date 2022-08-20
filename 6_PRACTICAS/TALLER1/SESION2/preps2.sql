@@ -5,6 +5,7 @@ OPERACION CHAR(1),
 TABLA VARCHAR(30),
 ID INTEGER
 );
+
 delimiter $
 create or replace procedure preps(in poper varchar(1), in pid integer, in pnom text, pestado integer)
 sp:begin
@@ -25,14 +26,12 @@ end if;
 
 if(poper='A' AND TIENEPERMISO('A','EPS')=1) then 
 	select * from eps;
-else
-  select -1,'45002|NO TIENE PERMISO' as msg;
-  leave sp;
 end if;
+
 if(poper='Q') then 
 	select * from eps where ideps=pid;
 end if;
-if(poper='I') then 
+if(poper='I' AND TIENEPERMISO('I','EPS')=1) then 
 	insert into eps (nombre, estadoeps) values(pnom,pestado);
 	INSERT INTO LOGAUDITORIA(USUARIO,OPERACION,TABLA) VALUES(USER(),'I','EPS');
 end if;
