@@ -7,11 +7,6 @@ delimiter $
 create or replace procedure preps(in poper varchar(1), in pid integer, in pnom text, pestado integer)
 sp:begin
 
-if(TIENEPERMISO(poper,'eps')=0) then
-SELECT 'NO TIENE PERMISO' AS MSG;
-LEAVE SP;
-END IF;
-
 if(poper in('Q','U','D')) then
 select count(*) into @b from eps where ideps=pid;
 if(@b=0) then
