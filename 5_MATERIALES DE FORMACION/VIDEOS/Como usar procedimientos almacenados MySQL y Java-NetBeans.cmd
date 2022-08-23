@@ -1,1 +1,1 @@
-start chrome https://www.youtube.com/embed/lGJtwEA5ycs
+start chrome https://www.youtube.com/watch?v=lGJtwEA5ycs
