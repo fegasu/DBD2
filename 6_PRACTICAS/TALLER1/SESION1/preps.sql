@@ -7,6 +7,10 @@ delimiter $
 create or replace procedure preps(in poper varchar(1), in pid integer, in pnom text, pestado integer)
 sp:begin
 
+if(poper not in('A','I','Q','U','D')) then
+select 'OPERADOR NO ACEPTADO' as msg;
+	leave sp;
+end if;
 if(poper in('Q','U','D')) then
 select count(*) into @b from eps where ideps=pid;
 if(@b=0) then
