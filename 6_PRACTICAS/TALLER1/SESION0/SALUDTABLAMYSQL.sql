@@ -7,14 +7,11 @@ CREATE TABLE ESTADOEPS
   descripcion VARCHAR(255)  NOT NULL
   );
 
-
-
-
-INSERT INTO estadoeps  VALUES (1,'Activa');
 INSERT INTO estadoeps  VALUES (2,'Sancionada');
 INSERT INTO estadoeps  VALUES (3,'Desactivada');
 INSERT INTO estadoeps  VALUES (4,'Intervenida');
 INSERT INTO estadoeps  VALUES (5,'Liquidada');
+INSERT INTO estadoeps  VALUES (1,'Activa');
 
 CREATE TABLE EPS
 (
